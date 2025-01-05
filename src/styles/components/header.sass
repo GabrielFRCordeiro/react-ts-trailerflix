@@ -1,0 +1,39 @@
+@use '../__index' as *
+
+.header
+  width: calc(100% - $d-padding-1)
+  height: 10vh
+  background-color: $color-primary
+  padding: $padding-1
+  display: flex
+  justify-content: space-between
+
+  label
+    margin: 0 auto
+    align-self: center
+
+    input
+      color: $color-black
+      border: none
+      border-radius: .3em
+      background-color: $color-white
+      padding: $padding-2
+      font-size: 1rem
+    
+    i
+      position: relative
+      left: -12%
+      color: $color-black
+
+.img_logo
+  height: 100%
+
+@media (min-width: 772px)
+  .header label
+    width: 30em
+      
+    input
+      width: 80%
+    
+    i
+      left: -6%
