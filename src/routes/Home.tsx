@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import Card from "../components/Card";
 
 interface Trailer {
     id: number,
@@ -26,14 +27,16 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
-        {trailers ? (
-          trailers.map((trailer) => (
-            <p key={trailer.id}>{trailer.name}</p>
-        ))
-        ) : (
-          <p>Carregando...</p>
-        )}
-    </div>
+    <main className="home">
+        <section className="cards">
+          {trailers ? (
+            trailers.map((trailer) => (
+              <Card id={trailer.id} name={trailer.name} categories={trailer.categories} youtubeId={trailer.youtubeId} />
+          ))
+          ) : (
+            <h1>Carregando...</h1>
+          )}
+        </section>
+    </main>
   )
 }

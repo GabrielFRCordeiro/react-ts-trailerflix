@@ -1,5 +1,11 @@
 @use './__index' as *
 
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  font-family: 'Schibsted Grotesk', Inter, Helvetica, sans-serif
+
 body
   width: 100%
 
@@ -8,3 +14,14 @@ body
   min-height: 100vh
   background-color: $color-white
   color: $color-black
+
+.home
+  margin: 2em 0
+  width: 100%
+  padding: 0 2em
+
+  .cards
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-around
+    gap: 2em
