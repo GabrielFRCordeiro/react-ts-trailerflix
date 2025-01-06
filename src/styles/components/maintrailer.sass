@@ -1,0 +1,38 @@
+@use '../__index' as *
+
+.main_trailer
+  width: 360px
+
+  iframe
+      @include video-sm
+      border: none
+      border-radius: $b-radius-dec-1
+      margin-bottom: 1em
+
+  .trailer_title
+    margin-bottom: .2em
+
+  .trailer_description
+    font-size: 1rem
+    margin-bottom: .5em
+
+  .trailer_categories p
+    display: inline
+    margin-right: 15px
+
+@media (min-width: 772px)
+  .main_trailer
+    width: 720px
+
+    iframe
+        @include video-md
+    
+    .trailer_description
+        font-size: 1.5rem
+
+@media (min-width: 1200px)
+  .main_trailer
+    width: 720px
+
+    iframe
+        @include video-lg

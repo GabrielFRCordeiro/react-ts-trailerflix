@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import Card from "../components/Card";
+import MainTrailer from "../components/MainTrailer";
 
 interface Trailers {
     id: number,
@@ -36,9 +37,7 @@ export default function Trailer() {
     <main className="trailer">
       {trailer && trailers ? (
         <>
-          <section className="main_trailer">
-            <iframe width="560" height="315" src={`https://www.youtube.com/embed/${trailer.youtubeId}?si=l66iGm3XYwGtjHNK`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-          </section>
+          <MainTrailer id={trailer.id} name={trailer.name} description={trailer.description} youtubeId={trailer.youtubeId} categories={trailer.categories} />
           <section className="other_trailers">
             {trailers.map((trailer) => (
                           <Card id={trailer.id} name={trailer.name} categories={trailer.categories} youtubeId={trailer.youtubeId} />
