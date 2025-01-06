@@ -26,9 +26,13 @@ export default function Trailer() {
     const fetchTrailers = async () => {
         const res = await fetch(`https://api-trailerflix.vercel.app/trailers`)
         const data: ApiResponse = await res.json()
-        setTrailers(data.trailers)
+        setTrailers(data.trailers
+          .filter((trailer) => trailer.id !== trailerId)
+          .map(value => ({ value, sort: Math.random() }))
+          .sort((a, b) => a.sort - b.sort)
+          .map(({ value }) => value)
+        )
         setTrailer(data.trailers.find((trailer: Trailers) => trailer.id === trailerId))
-        console.log(trailer)
     }
     
     fetchTrailers();
@@ -41,7 +45,7 @@ export default function Trailer() {
           <MainTrailer id={trailer.id} name={trailer.name} description={trailer.description} youtubeId={trailer.youtubeId} categories={trailer.categories} />
           <section className="other_trailers">
             {trailers.map((trailer) => (
-                          <Card id={trailer.id} name={trailer.name} categories={trailer.categories} youtubeId={trailer.youtubeId} />
+              <Card id={trailer.id} name={trailer.name} categories={trailer.categories} youtubeId={trailer.youtubeId} />
             ))}
           </section>
         </main>

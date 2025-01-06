@@ -21,7 +21,11 @@ export default function Home() {
     const fetchTrailers = async () => {
         const res = await fetch('https://api-trailerflix.vercel.app/trailers')
         const data: ApiResponse = await res.json()
-        setTrailers(data.trailers)
+        setTrailers(data.trailers
+          .map(value => ({ value, sort: Math.random() }))
+          .sort((a, b) => a.sort - b.sort)
+          .map(({ value }) => value)
+        )
     }
     
     fetchTrailers();
