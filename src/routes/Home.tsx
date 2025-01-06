@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import Card from "../components/Card";
+import { CircularProgress } from "@mui/material";
 
 interface Trailer {
     id: number,
@@ -27,16 +28,18 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="home">
-        <section className="cards">
-          {trailers ? (
-            trailers.map((trailer) => (
+    <>
+      {trailers ? (
+        <main className="home">
+          <section className="cards">
+            {trailers.map((trailer) => (
               <Card id={trailer.id} name={trailer.name} categories={trailer.categories} youtubeId={trailer.youtubeId} />
-          ))
-          ) : (
-            <h1>Carregando...</h1>
-          )}
-        </section>
-    </main>
+            ))}
+          </section>
+        </main>
+      ) : (
+        <CircularProgress size={250} className="loading" />
+      )}
+    </>
   )
 }

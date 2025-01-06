@@ -15,6 +15,14 @@ body
   background-color: $color-white
   color: $color-black
 
+.loading
+  position: absolute
+  margin: auto
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+
 .home
   margin: 2em 0 0
   width: 100%
@@ -56,10 +64,6 @@ body
   .trailer
     margin: 2em 0 0
     padding: 0 $padding-int-3
-    flex-direction: row
-    justify-content: space-around
-    align-items: normal
-    row-gap: 0
 
     .other_trailers
-      max-width: calc(100% - $d-padding-int-3 - 720px)
+      max-width: calc(100% - $d-padding-int-3)

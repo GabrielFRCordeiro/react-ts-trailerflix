@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import Card from "../components/Card";
 import MainTrailer from "../components/MainTrailer";
+import { CircularProgress } from "@mui/material";
 
 interface Trailers {
     id: number,
@@ -34,19 +35,19 @@ export default function Trailer() {
   }, []);
 
   return (
-    <main className="trailer">
+    <>
       {trailer && trailers ? (
-        <>
+        <main className="trailer">
           <MainTrailer id={trailer.id} name={trailer.name} description={trailer.description} youtubeId={trailer.youtubeId} categories={trailer.categories} />
           <section className="other_trailers">
             {trailers.map((trailer) => (
                           <Card id={trailer.id} name={trailer.name} categories={trailer.categories} youtubeId={trailer.youtubeId} />
             ))}
           </section>
-        </>
+        </main>
       ) : (
-        <h1>Carregando...</h1>
+        <CircularProgress size={250} className="loading" />
       )}
-    </main>
+    </>
   )
 }
