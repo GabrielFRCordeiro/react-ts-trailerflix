@@ -2,7 +2,7 @@
 
 .main_trailer
   width: 360px
-
+  
   iframe
       @include video-sm
       border: none
@@ -10,16 +10,17 @@
       margin-bottom: 1em
       box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px
 
-  .trailer_title
-    margin-bottom: .2em
+  .trailer_details
+    .title
+      margin-bottom: .2em
 
-  .trailer_description
-    font-size: 1rem
-    margin-bottom: .5em
+    .description
+      font-size: 1rem
+      margin-bottom: .5em
 
-  .trailer_categories p
-    display: inline
-    margin-right: 15px
+    .categories p
+      display: inline
+      margin-right: 15px
 
 @media (min-width: 772px)
   .main_trailer
@@ -28,7 +29,8 @@
     iframe
         @include video-md
     
-    .trailer_description
+    .trailer_details
+      .description
         font-size: 1.5rem
 
 @media (min-width: 1200px)
