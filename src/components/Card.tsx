@@ -10,14 +10,14 @@ interface Trailer {
 
 export default function Card({id, name, categories, youtubeId}: Trailer) {
   return (
-    <div key={id}>
+    <>
         <Link to={`/trailers/${id}`}>
             <div className="thumbnail_container">
                 <img src={`https://i.ytimg.com/vi/${youtubeId}/maxresdefault.jpg`} alt="" />
             </div>
             <h3 className='title'>{name}</h3>
         </Link>
-        <p className='category'>{categories[0]}</p>
-    </div>
+        <p className='category'><span>{categories[0]}</span></p>
+    </>
   )
 }

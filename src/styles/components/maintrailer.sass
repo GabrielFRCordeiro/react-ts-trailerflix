@@ -23,9 +23,19 @@
       font-size: 1rem
       margin-bottom: .5em
 
-    .categories p
-      display: inline
-      margin-right: 15px
+    .categories
+      display: flex
+      flex-wrap: wrap
+      row-gap: .5em
+
+      p
+        display: inline
+        margin-right: 15px
+
+      span
+        background-color: $color-gray
+        padding: $padding-dec-5 $padding-dec-2
+        border-radius: $b-radius-dec-1
 
 @media (min-width: 772px)
   .main_trailer

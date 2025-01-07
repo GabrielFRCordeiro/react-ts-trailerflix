@@ -21,6 +21,7 @@ export default function Trailer() {
   const trailerId = params ? parseInt(params) : 0;
   const [trailer, setTrailer] = useState<Trailers | null | undefined>(null);
   const [trailers, setTrailers] = useState<Trailers[] | null | undefined>(null);
+  const [featuredTrailerId, setFeaturedTrailerId] = useState<number>(trailerId);
 
   useEffect(() => {
     const fetchTrailers = async () => {
@@ -38,14 +39,31 @@ export default function Trailer() {
     fetchTrailers();
   }, []);
 
+  const handleCardClick = (id: number) => {
+    setFeaturedTrailerId(id);
+  };
+
   return (
     <>
       {trailer && trailers ? (
         <main className="trailer">
-          <MainTrailer id={trailer.id} name={trailer.name} description={trailer.description} youtubeId={trailer.youtubeId} categories={trailer.categories} />
+          <MainTrailer 
+            id={featuredTrailerId || trailer.id} 
+            name={trailers.find(t => t.id === featuredTrailerId)?.name || trailer.name} 
+            description={trailers.find(t => t.id === featuredTrailerId)?.description || trailer.description} 
+            youtubeId={trailers.find(t => t.id === featuredTrailerId)?.youtubeId || trailer.youtubeId} 
+            categories={trailers.find(t => t.id === featuredTrailerId)?.categories || trailer.categories} 
+          />
           <section className="other_trailers">
             {trailers.map((trailer) => (
-              <Card id={trailer.id} name={trailer.name} categories={trailer.categories} youtubeId={trailer.youtubeId} />
+                <div key={trailer.id} onClick={() => handleCardClick(trailer.id)}>
+                  <Card 
+                  id={trailer.id} 
+                  name={trailer.name} 
+                  categories={trailer.categories} 
+                  youtubeId={trailer.youtubeId} 
+                />
+                </div>
             ))}
           </section>
         </main>

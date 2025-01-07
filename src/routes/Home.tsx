@@ -37,7 +37,14 @@ export default function Home() {
         <main className="home">
           <section className="cards">
             {trailers.map((trailer) => (
-              <Card id={trailer.id} name={trailer.name} categories={trailer.categories} youtubeId={trailer.youtubeId} />
+              <div key={trailer.id}>
+                <Card 
+                  id={trailer.id} 
+                  name={trailer.name} 
+                  categories={trailer.categories} 
+                  youtubeId={trailer.youtubeId} 
+                />
+              </div>
             ))}
           </section>
         </main>
