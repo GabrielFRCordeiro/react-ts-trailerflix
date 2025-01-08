@@ -15,6 +15,7 @@
   .trailer_details
     display: flex
     flex-direction: column
+    animation: trailer_info 2s forwards
 
     .title
       margin-bottom: .2em
@@ -74,3 +75,8 @@
     .trailer_details
       width: calc(85% - 2em - 720px)
 
+@keyframes trailer_info
+  from
+    transform: translate(100px)
+  to
+    transform: translate(0px)
