@@ -37,7 +37,7 @@ export default function Trailer() {
     }
     
     fetchTrailers();
-  }, [featuredTrailerId, trailerId]);
+  }, [trailerId]);
 
   const handleCardClick = (id: number) => {
     setFeaturedTrailerId(id);
