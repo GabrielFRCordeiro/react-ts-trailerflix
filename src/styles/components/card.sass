@@ -2,12 +2,20 @@
 
 .thumbnail_container
   @include thumbnail-md
+  position: relative
+  overflow: hidden
+  border-radius: $b-radius-dec-2
 
   img
-    width: 100%
-    height: 100%
+    width: 95%
+    height: 95%
     object-fit: cover
     border-radius: $b-radius-dec-2
+    position: relative
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
+    z-index: 10
 
 .title
   width: 100%
@@ -20,3 +28,31 @@
     background-color: $color-gray
     padding: $padding-dec-5 $padding-dec-2
     border-radius: $b-radius-dec-1
+
+.thumbnail_container:hover::before
+  position: absolute
+  content: ""
+  width: 120%
+  height: 30%
+  background: $color-primary
+  transform: rotate(45deg)
+  left: 50%
+  top: 50%
+  transform: translate(-50%, -50%) rotate(45deg)
+  transform-origin: center
+  z-index: 1
+  animation: thumbnail_border 2s linear infinite
+
+.thumbnail_container::after
+  position: absolute
+  content: ""
+  inset: 5px
+  background: #222
+  border-radius: 8px
+  z-index: 2
+
+@keyframes thumbnail_border
+  from
+    transform: translate(-50%, -50%) rotate(0deg)
+  to
+    transform: translate(-50%, -50%) rotate(360deg)
