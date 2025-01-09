@@ -17,7 +17,7 @@ export default function MainTrailer({id, name, youtubeId, description, categorie
           <p className="description">{description}</p>
           <div className="categories">
               {categories.map((category) => (
-              <p><span>{category}</span></p>
+              <p key={category}><span>{category}</span></p>
               ))}
           </div>
         </div>
