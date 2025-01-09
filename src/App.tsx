@@ -7,7 +7,7 @@ import { useState } from 'react'
 function App() {
   const [filteredTrailers, setFilteredTrailers] = useState('')
 
-  const handleInputChange = (e) => { 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => { 
     const searchTerm = e.target.value;
     setFilteredTrailers(searchTerm);
   }
