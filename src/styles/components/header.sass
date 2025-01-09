@@ -19,6 +19,8 @@
       color: $color-white
       font-size: 2.2rem
       font-family: 'Almendra SC'
+      display: none
+      
 
   label
     margin: 0 auto
@@ -41,11 +43,18 @@
   height: 100%
 
 @media (min-width: 768px)
-  .header label
-    width: 30em
-      
-    input
-      width: 80%
+  .header
+    label
+      width: 30em
+
+      input
+        width: 80%
     
-    i
-      left: -6%
+      i
+        left: -6%
+
+@media (min-width: 992px)
+  .header    
+    a
+      h1
+        display: block
