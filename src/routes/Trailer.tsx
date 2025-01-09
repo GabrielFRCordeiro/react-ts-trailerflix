@@ -25,7 +25,16 @@ export default function Trailer() {
       const foundTrailer = allTrailers.find((trailer: TrailerType) => trailer.id === trailerId);
       setTrailer(foundTrailer);
     }
-  }, [trailerId, allTrailers]);
+  }, [trailerId]);
+
+  useEffect(() => {
+    if (allTrailers) {
+      const filteredTrailers = allTrailers
+        .filter((trailer: TrailerType) => trailer.id !== trailerId);
+
+      setTrailers(filteredTrailers);
+    }
+  }, [allTrailers]);
 
   const handleCardClick = (id: number) => {
     setFeaturedTrailerId(id);

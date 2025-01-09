@@ -2,10 +2,11 @@ import '../styles/components/header.sass'
 import logo from '../assets/img_logo.svg'
 import { Link } from 'react-router-dom'
 
-// handleInputChange: (e: any) => void
-// onChange={handleInputChange}
+interface handleInputChange {
+  handleInputChange: (e: any) => void
+}
 
-export default function Header() {
+export default function Header({ handleInputChange }: handleInputChange) {
   return (
     <section className="header">
         <Link to='/'>
@@ -18,6 +19,7 @@ export default function Header() {
             name="t_field_search" 
             id="t_field_search" 
             placeholder='Search trailer...' 
+            onChange={handleInputChange}
           />
           <i className="bi bi-search"></i>
         </label>
