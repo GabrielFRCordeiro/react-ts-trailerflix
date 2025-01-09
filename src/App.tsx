@@ -5,15 +5,15 @@ import { TrailerProvider } from './contexts/TrailerProvider'
 import { useState } from 'react'
 
 function App() {
-  const [filteredUsers, setFilteredUsers] = useState('')
-  
+  const [filteredTrailers, setFilteredTrailers] = useState('')
+
   const handleInputChange = (e) => { 
     const searchTerm = e.target.value;
-    setFilteredUsers(searchTerm);
+    setFilteredTrailers(searchTerm);
   }
 
   return (
-    <TrailerProvider filteredTrailers={filteredUsers}>
+    <TrailerProvider filteredTrailers={filteredTrailers}>
       <Header handleInputChange={handleInputChange} />
       <Outlet />
     </TrailerProvider>

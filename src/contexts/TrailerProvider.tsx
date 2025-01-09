@@ -25,7 +25,7 @@ interface TrailerProviderProps {
 
 export const TrailerProvider: React.FC<TrailerProviderProps> = ({ children , filteredTrailers }) => {
   const [trailers, setTrailers] = useState<Trailer[] | null>(null);
-  const [originalTrailers, setOriginalTrailers] = useState<Trailer[]>([]);
+  const [allTrailers, setAllTrailers] = useState<Trailer[]>([]);
 
   useEffect(() => {
     const fetchTrailers = async () => {
@@ -37,16 +37,16 @@ export const TrailerProvider: React.FC<TrailerProviderProps> = ({ children , fil
         .map(({ value }) => value);
 
       setTrailers(sortedTrailers);
-      setOriginalTrailers(sortedTrailers);
+      setAllTrailers(sortedTrailers);
     };
 
     fetchTrailers();
   }, []);
 
   useEffect(() => {
-    const filteredItems = originalTrailers?.filter((trailer) =>
+    const filteredItems = allTrailers?.filter((trailer) =>
         trailer.name.toLowerCase().includes(filteredTrailers.toLowerCase())
-    ) || originalTrailers;
+    ) || allTrailers;
     setTrailers(filteredItems);
   }, [filteredTrailers]);
 
