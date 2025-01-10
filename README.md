@@ -33,3 +33,6 @@ We would like to thank the following people who contributed to this project:
     </td>
   </tr>
 </table>
+
+### License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
