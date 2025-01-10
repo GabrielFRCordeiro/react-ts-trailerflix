@@ -14,7 +14,7 @@ export default function Trailer() {
   const [featuredTrailerId, setFeaturedTrailerId] = useState<number>(trailerId);
 
   useEffect(() => {
-    if (allTrailers) {
+    if (allTrailers && allTrailers.length === 30) {
       const filteredTrailers = allTrailers
         .filter((trailer: TrailerType) => trailer.id !== trailerId)
         .map((value: TrailerType) => ({ value, sort: Math.random() }))
@@ -25,7 +25,7 @@ export default function Trailer() {
       const foundTrailer = allTrailers.find((trailer: TrailerType) => trailer.id === trailerId);
       setTrailer(foundTrailer);
     }
-  }, [trailerId]);
+  }, [trailerId, allTrailers]);
 
   useEffect(() => {
     if (allTrailers) {

@@ -3,10 +3,11 @@ import logo from '../assets/img_logo.svg'
 import { Link } from 'react-router-dom'
 
 interface handleInputChange {
-  handleInputChange: (e: any) => void
+  handleInputChange: (e: any) => void;
+  filteredTrailers: string;
 }
 
-export default function Header({ handleInputChange }: handleInputChange) {
+export default function Header({ handleInputChange, filteredTrailers }: handleInputChange) {
   return (
     <section className="header">
         <Link to='/'>
@@ -20,6 +21,7 @@ export default function Header({ handleInputChange }: handleInputChange) {
             id="t_field_search" 
             placeholder='Search trailer...' 
             onChange={handleInputChange}
+            value={filteredTrailers}
           />
           <i className="bi bi-search"></i>
         </label>
