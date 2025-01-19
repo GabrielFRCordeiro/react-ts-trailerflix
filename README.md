@@ -7,7 +7,9 @@
 
 <img src="./src/assets/img_logo.svg" alt="TrailerFlix logo" width="200em" />
 
-> TrailerFlix is a web application with the goal of displaying movie trailers. Users can watch trailers, explore different categories, and filter videos by name.
+TrailerFlix is a web application with the goal of displaying movie trailers. Users can watch trailers, explore different categories, and filter videos by name.
+
+> This project uses the [TrailerFlix API](https://github.com/GabrielFRCordeiro/node-ts-api-trailerflix)
 
 ### Technologies Used
 - React.js: JavaScript library for building user interfaces.
